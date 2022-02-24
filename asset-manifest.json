@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/starter/static/css/main.c9135489.css",
+    "main.js": "/starter/static/js/main.49afa885.js",
+    "static/media/silka-regular-webfont.eot": "/starter/static/media/silka-regular-webfont.3a45a9ba1f12695c0dce.eot",
+    "static/media/silka-regular-webfont.ttf": "/starter/static/media/silka-regular-webfont.eb71e0bf44df4dbcd1b6.ttf",
+    "static/media/silka-regular-webfont.woff": "/starter/static/media/silka-regular-webfont.0c338adf1bf8374aca0c.woff",
+    "static/media/silka-regular-webfont.woff2": "/starter/static/media/silka-regular-webfont.f2bcdd50be04809a0715.woff2",
+    "index.html": "/starter/index.html",
+    "main.c9135489.css.map": "/starter/static/css/main.c9135489.css.map",
+    "main.49afa885.js.map": "/starter/static/js/main.49afa885.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c9135489.css",
+    "static/js/main.49afa885.js"
+  ]
+}
