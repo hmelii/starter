@@ -8,8 +8,6 @@ export const useRoute = () => {
         const locationPath = window.location.pathname
         const locationPathParse = locationPath.match(locationPathRegex)
 
-        console.log('locationPath', locationPath)
-        console.log('locationPathParse', locationPathParse)
 
         if (locationPathParse ) {
             // @ts-ignore

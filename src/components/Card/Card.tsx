@@ -13,11 +13,11 @@ type DataTypeProps = {
 
 type CardTypeProps = {
     heading: string,
-    data: DataTypeProps
+    data?: DataTypeProps
 }
 
+// @ts-ignore
 export const Card: FC<CardTypeProps> = ({heading, data: {title = '', image = null, summary = ''}}) => {
-    console.log('image', image)
     return (
         <MuiCard sx={{border: 0, boxShadow: 'none'}}>
             <Box sx={{paddingTop: '1.3rem', marginBottom: '2.2rem'}}>

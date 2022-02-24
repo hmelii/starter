@@ -78,28 +78,36 @@ const initialState = {
 
 export const Level: FC = () => {
     const {param, parseParam} = useRoute()
-    const [items, setItems] = useState([])
+    const [data, setData] = useState(null)
+   /* const [items, setItems] = useState([])
     const [title, setTitle] = useState('')
-    const [card, setCard] = useState(null)
-    useEffect(() => {
-        if (param) {
-            console.log('param', param)
-        }
-    }, [param])
+    const [card, setCard] = useState(null)*/
+
+
 
     useEffect(() => {
+        console.log('init')
         parseParam()
-    }, [parseParam])
+    }, [])
 
+    // @ts-ignore
     useEffect(() => {
+        console.log('param', param)
         if (param) {
-            const {menu = [], title = '', card = {}} = initialState[param]
-            setItems(menu)
+            setData(initialState[param])
+            /*setItems(menu)
             setTitle(title)
             // @ts-ignore
-            setCard(card)
+            setCard(card)*/
         }
     }, [param])
+
+    if (!data) {
+        return null
+    }
+
+    // @ts-ignore
+    const {title = '', card = null, menu = []} = data
 
 
     return (
@@ -109,7 +117,7 @@ export const Level: FC = () => {
                     {title}
                 </Heading>
             </Box>
-            <Nav items={items}/>
+            <Nav items={menu}/>
 
             <Box sx={{marginBottom: '4.8rem'}}>
                 <ShopAll>Shop All  {title}</ShopAll>
