@@ -103,7 +103,7 @@ export const Level: FC = () => {
 
 
     return (
-        <Box>
+        <Box sx={{padding: '0 4.8rem 4.8rem', minHeight: '100vh', boxSizing: 'border-box', backgroundColor: '#fff'}}>
             <Box sx={{margin: '0 -4.8rem 2.9rem'}}>
                 <Heading>
                     {title}

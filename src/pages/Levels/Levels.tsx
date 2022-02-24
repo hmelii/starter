@@ -30,7 +30,7 @@ const data = {
 
 export const Levels: FC = () => {
     return (
-        <Box sx={{paddingTop: '9.6rem'}}>
+            <Box sx={{padding: '9.6rem 4.8rem 4.8rem', minHeight: '100vh',  boxSizing: 'border-box', backgroundColor: '#fff'}}>
             <MainNav items={initialState}/>
 
             <Box sx={{marginBottom: '4.8rem'}}>
