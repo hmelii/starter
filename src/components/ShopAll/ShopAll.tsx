@@ -1,16 +1,16 @@
-import {FC, ReactNode} from "react";
+import { FC, ReactNode } from 'react'
 
 import ButtonUnstyled, {
-    buttonUnstyledClasses,
-    ButtonUnstyledProps,
-} from '@mui/base/ButtonUnstyled';
-import { styled } from '@mui/system';
+  buttonUnstyledClasses,
+  ButtonUnstyledProps
+} from '@mui/base/ButtonUnstyled'
+import { styled } from '@mui/system'
 
 const blue = {
-    500: '#004CBD',
-    600: '#007FFF',
-    700: '#0072E5',
-};
+  500: '#004CBD',
+  600: '#007FFF',
+  700: '#0072E5'
+}
 
 const CustomButtonRoot = styled('button')`
   font-weight: 600;
@@ -37,7 +37,8 @@ const CustomButtonRoot = styled('button')`
   }
 
   &.${buttonUnstyledClasses.focusVisible} {
-    box-shadow: 0 4px 20px 0 rgba(61, 71, 82, 0.1), 0 0 0 5px rgba(0, 127, 255, 0.5);
+    box-shadow: 0 4px 20px 0 rgba(61, 71, 82, 0.1),
+      0 0 0 5px rgba(0, 127, 255, 0.5);
     outline: none;
   }
 
@@ -45,9 +46,8 @@ const CustomButtonRoot = styled('button')`
     opacity: 0.5;
     cursor: not-allowed;
   }
-`;
-
+`
 
 export const ShopAll: FC = (props: ButtonUnstyledProps) => {
-    return <ButtonUnstyled {...props} component={CustomButtonRoot} />
+  return <ButtonUnstyled {...props} component={CustomButtonRoot} />
 }
