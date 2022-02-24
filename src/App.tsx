@@ -1,10 +1,10 @@
 import React from 'react'
 import { createTheme, ThemeProvider } from '@mui/material'
+import { keyframes } from '@emotion/react'
 import { Main } from './Layouts'
 import { Route } from './components/Route'
 import { Levels } from './pages/Levels'
 import { Level } from './pages/Level'
-import { keyframes } from '@emotion/react'
 import './styles.css'
 
 const theme = createTheme({

@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import { default as MuiCard } from '@mui/material/Card'
+import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 import CardMedia from '@mui/material/CardMedia'
 import { Link } from '../Link'
-import Typography from '@mui/material/Typography'
 
 type DataTypeProps = {
   title: string
@@ -13,12 +13,10 @@ type DataTypeProps = {
 
 type CardTypeProps = {
   heading: string
-  data?: DataTypeProps
+  data: DataTypeProps
 }
 
-// @ts-ignore
 export const Card: FC<CardTypeProps> = ({ heading, data }) => {
-  // @ts-ignore
   const { title = '', image = null, summary = '' } = data
   return (
     <MuiCard sx={{ border: 0, boxShadow: 'none' }}>

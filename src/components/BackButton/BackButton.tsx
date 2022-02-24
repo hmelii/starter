@@ -1,10 +1,9 @@
 import { FC } from 'react'
-import { blue } from '../../constants/colors'
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded'
 import { Link } from '../Link'
+import { blue } from '@mui/material/colors'
 
 const backButtonStyles = {
-  backgroundColor: `${blue[500]}`,
   width: '6.4rem',
   height: '6.4rem',
   padding: 0,

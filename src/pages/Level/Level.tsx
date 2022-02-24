@@ -81,13 +81,11 @@ export const Level: FC = () => {
      const [card, setCard] = useState(null)*/
 
   useEffect(() => {
-    console.log('init')
     parseParam()
   }, [])
 
   // @ts-ignore
   useEffect(() => {
-    console.log('param', param)
     if (param) {
       setData(initialState[param])
       /*setItems(menu)

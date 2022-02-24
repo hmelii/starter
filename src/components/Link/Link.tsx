@@ -1,30 +1,32 @@
-import React, {FC, ReactElement, ReactNode} from "react";
-import {default as MuiLink} from "@mui/material/Link";
+import React, { FC, ReactNode } from 'react'
+import { default as MuiLink } from '@mui/material/Link'
 
 type LinkPropTypes = {
-    styles?: Object | string;
-    href: string;
-    children: ReactNode;
+  styles?: Object | string
+  href: string
+  children: ReactNode
 }
 
-export const Link: FC<LinkPropTypes> = ({ styles= {}, href, children }) => {
+export const Link: FC<LinkPropTypes> = ({ styles = {}, href, children }) => {
+  const onClick = (event: {
+    metaKey: any
+    ctrlKey: any
+    preventDefault: () => void
+  }) => {
+    if (event.metaKey || event.ctrlKey) {
+      return
+    }
 
-    const onClick = (event: { metaKey: any; ctrlKey: any; preventDefault: () => void; }) => {
-        if (event.metaKey || event.ctrlKey) {
-            return;
-        }
+    event.preventDefault()
+    window.history.pushState({}, '', href)
 
-        event.preventDefault();
-        window.history.pushState({}, "", href)
+    const navEvent = new PopStateEvent('popstate')
+    window.dispatchEvent(navEvent)
+  }
 
-        const navEvent = new PopStateEvent('popstate');
-        window.dispatchEvent(navEvent);
-    };
-
-    return (
-        <MuiLink sx={styles} href={href} onClick={onClick}>
-            {children}
-        </MuiLink>
-    );
-};
-
+  return (
+    <MuiLink sx={styles} href={href} onClick={onClick}>
+      {children}
+    </MuiLink>
+  )
+}
