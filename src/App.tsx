@@ -4,8 +4,8 @@ import {Main} from "./Layouts";
 import {Route} from "./components/Route";
 import {Levels} from "./pages/Levels";
 import {Level} from "./pages/Level";
-import './styles.scss'
 
+import './styles.scss'
 
 const theme = createTheme({
     typography: {
@@ -19,12 +19,14 @@ function App() {
         <ThemeProvider theme={theme}>
             <Main>
                 <Route path="/">
+
+
                     <Levels/>
                 </Route>
-               {/* <Route path="/levels/:id">
-                    <Level/>
-                </Route>*/}
-               <Route path="/levels/laundry">
+                {/* <Route path="/levels/:id">
+                        <Level/>
+                    </Route>*/}
+                <Route path="/levels/laundry">
                     <Level/>
                 </Route>
                 <Route path="/levels/household">

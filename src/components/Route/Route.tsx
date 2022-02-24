@@ -1,4 +1,5 @@
 import React, {FC, ReactElement, useEffect, useState} from "react";
+import {Box, Slide} from '@mui/material'
 
 type RoutePropTypes = {
     path: string;
@@ -7,38 +8,12 @@ type RoutePropTypes = {
 
 export const Route: FC<RoutePropTypes> = ({path, children}) => {
     const [currentPath, setCurrentPath] = useState(window.location.pathname);
-    const routeRef = React.useRef() as React.MutableRefObject<HTMLInputElement>;
-    const pathRegex = /(\/\w+)\/:(\w+)/
-    const locationPathRegex = /(\/\w+)\/(\w+)/
-
-    const parseParams = () => {
-        const locationPath = window.location.pathname
-        const pathParse = path.match(pathRegex)
-        const locationPathParse = locationPath.match(locationPathRegex)
-
-        console.log('path', path)
-        console.log('locationPath', locationPath)
-        console.log('pathParse', pathParse)
-        console.log('locationPathParse', locationPathParse)
-
-        if (!locationPathParse || !pathParse) {
-            return false
-        }
-
-        return {
-            param: locationPathParse[2],
-            paramName: pathParse[2]
-        }
-
-    }
-
-
+    // const routeRef = React.useRef() as React.MutableRefObject<HTMLInputElement>;
 
     useEffect(() => {
 
 
         const onLocationChange = () => {
-            const withParam = parseParams()
 
 
             // @ts-ignore
@@ -49,7 +24,14 @@ export const Route: FC<RoutePropTypes> = ({path, children}) => {
 
             setCurrentPath(window.location.pathname)
         }
+
+        const onAnimationEnd = () => {
+
+        }
+
         window.addEventListener('popstate', onLocationChange);
+
+        // routeRef.current.addEventListener('animationend', onAnimationEnd);
 
 
         return () => {
@@ -59,10 +41,7 @@ export const Route: FC<RoutePropTypes> = ({path, children}) => {
     }, [])
 
     return currentPath === path
-        ? <>
-            <div ref={routeRef}>{children}</div>
-
-        </>
+        ?  <Slide direction="right" in={true} mountOnEnter unmountOnExit ><Box>{children}</Box></Slide>
         : null;
 }
 

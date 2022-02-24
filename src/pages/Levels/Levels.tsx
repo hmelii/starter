@@ -22,16 +22,24 @@ const initialState = [
     }
 ]
 
-export const Levels:FC = () => {
-    return <Box sx={{paddingTop: '9.6rem'}}>
-        <MainNav items={initialState} />
+const data = {
+    title: 'Active Wash Detergent',
+    summary: '"Knocks out stink and smells even after clothes have stewed for days. Amazing stuff."',
+    image: '/images/pic1.jpg'
+}
 
-        <Box sx={{marginBottom: '4.8rem'}}>
-            <ShopAll>Shop all</ShopAll>
+export const Levels: FC = () => {
+    return (
+        <Box sx={{paddingTop: '9.6rem'}}>
+            <MainNav items={initialState}/>
+
+            <Box sx={{marginBottom: '4.8rem'}}>
+                <ShopAll>Shop all</ShopAll>
+            </Box>
+
+            <Divider sx={{borderColor: '#AED9FF', marginBottom: '3.6rem'}}/>
+
+            <Card heading="Featured" data={data}/>
         </Box>
-
-        <Divider sx={{borderColor: '#AED9FF', marginBottom: '3.6rem'}} />
-
-        <Card />
-    </Box>
+    )
 }
