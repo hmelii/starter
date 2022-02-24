@@ -37,7 +37,7 @@ const initialState = {
         card: {
             title: 'Senstive Skin & Baby Detergent',
             summary: '"Doesn\'t irritate my reactive skin & leaves clothes as clean as the big-brand detergents!"',
-            image: '/images/pic1.jpg'
+            image: 'https://www.fillmurray.com/72/72'
 
         }
 
@@ -69,7 +69,7 @@ const initialState = {
         card: {
             title: 'Dishwasher Detergent',
             summary: '“They clean really well and I no longer have to use any rinse aid.”',
-            image: '/images/pic1.jpg'
+            image: 'https://www.fillmurray.com/72/72'
 
         }
 

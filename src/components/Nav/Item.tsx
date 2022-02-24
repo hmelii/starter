@@ -1,5 +1,5 @@
 import {FC} from "react";
-import {ListItem, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
+import {ListItem,  ListItemText} from "@mui/material";
 import {Link} from "../Link";
 
 
@@ -11,12 +11,11 @@ type ItemPropTypes = {
 export const Item: FC<ItemPropTypes> = ({title, href}) => {
     return (
         <ListItem disablePadding>
-            <ListItemButton
+            <Link
                 styles={{
                     textDecoration: 'none',
                     marginBottom: '2.7rem',
                 }}
-                component={Link}
                 href={href}>
                 <ListItemText
                     disableTypography
@@ -26,7 +25,7 @@ export const Item: FC<ItemPropTypes> = ({title, href}) => {
                         lineHeight: 1.3
                     }}>{title}</ListItemText>
 
-            </ListItemButton>
+            </Link>
         </ListItem>
     )
 }

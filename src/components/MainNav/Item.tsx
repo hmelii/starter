@@ -1,5 +1,5 @@
 import {FC} from "react";
-import {ListItem, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
+import {ListItem,  ListItemIcon, ListItemText} from "@mui/material";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 import {Link} from "../Link";
 
@@ -12,7 +12,7 @@ type ItemPropTypes = {
 export const Item: FC<ItemPropTypes> = ({title, href}) => {
     return (
         <ListItem disablePadding>
-            <ListItemButton
+            <Link
                 styles={{
                     textDecoration: 'none',
                     padding: '2.4rem 0',
@@ -20,7 +20,6 @@ export const Item: FC<ItemPropTypes> = ({title, href}) => {
                     display: 'flex',
                     justifyContent: 'space-between'
                 }}
-                component={Link}
                 href={href}>
                 <ListItemText
                     disableTypography
@@ -39,7 +38,7 @@ export const Item: FC<ItemPropTypes> = ({title, href}) => {
                             width: '2rem'
                         }} />
                 </ListItemIcon>
-            </ListItemButton>
+            </Link>
         </ListItem>
     )
 }

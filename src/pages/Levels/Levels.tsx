@@ -25,7 +25,7 @@ const initialState = [
 const data = {
     title: 'Active Wash Detergent',
     summary: '"Knocks out stink and smells even after clothes have stewed for days. Amazing stuff."',
-    image: '/images/pic1.jpg'
+    image: 'https://www.fillmurray.com/72/72'
 }
 
 export const Levels: FC = () => {

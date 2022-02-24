@@ -2,7 +2,7 @@ import React, {FC, ReactElement, ReactNode} from "react";
 import {default as MuiLink} from "@mui/material/Link";
 
 type LinkPropTypes = {
-    styles?: Object;
+    styles?: Object | string;
     href: string;
     children: ReactNode;
 }

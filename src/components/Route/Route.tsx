@@ -1,37 +1,27 @@
 import React, {FC, ReactElement, useEffect, useRef, useState} from "react";
 import {Box, Slide, Fade} from '@mui/material'
 import { jsx, css, keyframes } from '@emotion/react'
+import {SlideProps} from "@mui/material/Slide/Slide";
 
 type RoutePropTypes = {
     path: string;
-    children: ReactElement
+    children: ReactElement,
+    animationEnter: Object,
+    animationLeave: Object
 }
 
 
-const keyframe = keyframes`
-  0% {
-        opacity: 1;
-        background-color: rgba(255,255,255,1);
-        transform: translate(0%, 0);
-    }
-    100% {
-        transform: translate(30%, 0);
-        background-color: rgba(0,0,0,.5);
-        opacity: .5
-    }
-`
-
-const stylesShown = {position: 'absolute', inset: 0,  animation: `${keyframe} 1s ease`, opacity: 1, zIndex: -1}
-
-const stylesHidden = {}
 
 
 
-export const Route: FC<RoutePropTypes> = ({path, children}) => {
+
+
+
+export const Route: FC<RoutePropTypes> = ({path, children, animationEnter, animationLeave}) => {
     const [currentPath, setCurrentPath] = useState(window.location.pathname);
     const [isCurrentPath, setIsCurrentPath] = useState(false)
     // const routeRef = React.useRef() as React.MutableRefObject<HTMLInputElement>;
-    const [appear, setApear] = useState(false)
+    // const [appear, setApear] = useState(false)
     // const isCurrentPath = currentPath === path
     const [isShown, setShown] = useState(false)
     const shadowRef = useRef()
@@ -52,8 +42,9 @@ export const Route: FC<RoutePropTypes> = ({path, children}) => {
         }
 
         const onAnimationEnd = () => {
-            console.log('test')
-            setShown(false)
+            if (!isCurrentPath) {
+                setShown(false)
+            }
         }
 
 
@@ -69,6 +60,11 @@ export const Route: FC<RoutePropTypes> = ({path, children}) => {
 
         return () => {
             window.removeEventListener('popstate', onLocationChange)
+
+            if (shadowRef && shadowRef.current) {
+                // @ts-ignore
+                shadowRef.current.removeEventListener('animationend', onAnimationEnd);
+            }
         };
 
 
@@ -80,15 +76,12 @@ export const Route: FC<RoutePropTypes> = ({path, children}) => {
 
     useEffect(() => {
         if (isCurrentPath) {
+            console.log(currentPath)
             setShown(true)
-            setApear(isCurrentPath)
+            // setApear(isCurrentPath)
 
         }
     }, [isCurrentPath])
-
-    const onEndListener = () => {
-        console.log('test')
-    }
 
 
     // const styles = !isCurrentPath ? {position: 'absolute', inset: 0, zIndex: -1} : {}
@@ -96,9 +89,9 @@ export const Route: FC<RoutePropTypes> = ({path, children}) => {
 
     return (
         <>
-            {isCurrentPath &&
-              <Slide timeout={1000} direction={isCurrentPath ? 'right' : 'left'}  in={true} mountOnEnter unmountOnExit><Box>{children}</Box></Slide>}
-            { isShown && !isCurrentPath && <Box sx={ stylesShown} ref={shadowRef}>{children}</Box>}
+            {isShown ? <Box ref={shadowRef} sx={isCurrentPath ? animationEnter : animationLeave}>{children}</Box> : null}
+              {/*<Slide timeout={1000} direction={animationEnter}  in={true} mountOnEnter unmountOnExit><Box>{children}</Box></Slide>*/}
+            {/*{ isShown && !isCurrentPath && <Box sx={ stylesShown} ref={shadowRef}>{children}</Box>}*/}
         </>
     )
     /* ?  <Box sx={{position: 'relative', zIndex: 2, background: '#fff', width: '100%'}}><Slide direction="right" in={true} mountOnEnter unmountOnExit><Box>{children}</Box></Slide></Box>
