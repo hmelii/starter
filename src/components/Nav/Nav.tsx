@@ -2,12 +2,7 @@ import { FC } from 'react'
 
 import { Box, List } from '@mui/material'
 import { Item } from './Item'
-
-type ItemTypeProp = {
-  id: number
-  title: string
-  href: string
-}
+import { ItemTypeProp } from '../../types'
 
 type NavTypeProp = {
   items: ItemTypeProp[]

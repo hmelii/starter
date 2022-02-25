@@ -4,12 +4,7 @@ import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 import CardMedia from '@mui/material/CardMedia'
 import { Link } from '../Link'
-
-type DataTypeProps = {
-  title: string
-  image: string | null
-  summary: string
-}
+import { DataTypeProps } from '../../types'
 
 type CardTypeProps = {
   heading: string

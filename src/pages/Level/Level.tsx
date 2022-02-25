@@ -1,4 +1,4 @@
-import { FC, useEffect, useMemo, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import Box from '@mui/material/Box'
 import Divider from '@mui/material/Divider'
 
@@ -7,6 +7,7 @@ import { ShopAll } from '../../components/ShopAll'
 import { Heading } from '../../components/Heading'
 import { Nav } from '../../components/Nav'
 import { useRoute } from '../../hooks/useRoute'
+import { DataTypeProps, ItemTypeProp } from '../../types'
 
 const initialState = {
   laundry: {
@@ -73,25 +74,24 @@ const initialState = {
   }
 }
 
+type LevelTypeProps = {
+  title: string
+  card: null | DataTypeProps
+  menu: ItemTypeProp[]
+}
+
 export const Level: FC = () => {
   const { param, parseParam } = useRoute()
-  const [data, setData] = useState(null)
-  /* const [items, setItems] = useState([])
-     const [title, setTitle] = useState('')
-     const [card, setCard] = useState(null)*/
+  const [data, setData] = useState<null | LevelTypeProps>(null)
 
   useEffect(() => {
     parseParam()
   }, [])
 
-  // @ts-ignore
   useEffect(() => {
     if (param) {
+      // @ts-ignore
       setData(initialState[param])
-      /*setItems(menu)
-            setTitle(title)
-            // @ts-ignore
-            setCard(card)*/
     }
   }, [param])
 
@@ -99,7 +99,6 @@ export const Level: FC = () => {
     return null
   }
 
-  // @ts-ignore
   const { title = '', card = null, menu = [] } = data
 
   return (
