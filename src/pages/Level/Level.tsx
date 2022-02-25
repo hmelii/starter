@@ -38,7 +38,7 @@ const initialState = {
       title: 'Senstive Skin & Baby Detergent',
       summary:
         '"Doesn\'t irritate my reactive skin & leaves clothes as clean as the big-brand detergents!"',
-      image: 'https://www.fillmurray.com/72/72'
+      image: '/images/pic1.jpg'
     }
   },
   household: {
@@ -69,7 +69,7 @@ const initialState = {
       title: 'Dishwasher Detergent',
       summary:
         '“They clean really well and I no longer have to use any rinse aid.”',
-      image: 'https://www.fillmurray.com/72/72'
+      image: '/images/pic1.jpg'
     }
   }
 }

@@ -23,7 +23,7 @@ const data = {
   title: 'Active Wash Detergent',
   summary:
     '"Knocks out stink and smells even after clothes have stewed for days. Amazing stuff."',
-  image: 'https://www.fillmurray.com/72/72'
+  image: '/images/pic1.jpg'
 }
 
 export const Levels: FC = () => {

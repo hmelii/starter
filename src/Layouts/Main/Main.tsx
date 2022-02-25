@@ -8,7 +8,8 @@ export const Main: FC = ({ children }) => {
         position: 'relative',
         width: '100%',
         minHeight: '100vh',
-        zIndex: 1
+        zIndex: 1,
+        overflow: 'hidden'
       }}
     >
       {children}

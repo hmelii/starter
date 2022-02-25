@@ -34,6 +34,7 @@ export const Card: FC<CardTypeProps> = ({ heading, data }) => {
             component="img"
             sx={{
               width: 72,
+              height: 72,
               flex: '0 1 72'
             }}
             image={image}
