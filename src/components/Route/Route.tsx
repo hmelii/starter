@@ -16,14 +16,16 @@ export const Route: FC<RoutePropTypes> = ({
 }) => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname)
   const [isCurrentPath, setIsCurrentPath] = useState(false)
+  const [firstPage, setFirstPage] = useState(false)
 
   const [isShown, setShown] = useState(false)
 
   useEffect(() => {
     const onLocationChange = () => {
       setCurrentPath(window.location.pathname)
+      setFirstPage(false)
     }
-
+    setFirstPage(window.location.pathname === path)
     window.addEventListener('popstate', onLocationChange)
 
     return () => {
@@ -52,7 +54,7 @@ export const Route: FC<RoutePropTypes> = ({
       {isShown ? (
         <Box
           onAnimationEnd={onAnimationEnd}
-          sx={isCurrentPath ? animationEnter : animationLeave}
+          sx={firstPage ? {} : isCurrentPath ? animationEnter : animationLeave}
         >
           {children}
         </Box>
